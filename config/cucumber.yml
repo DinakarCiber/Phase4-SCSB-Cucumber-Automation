@@ -5,3 +5,4 @@ default: -r support -r step_definitions
 
 ##common_formatters: >
  ##--format html --out log/cucumber.html
+pom: features -t @test -f html -o features_report.html

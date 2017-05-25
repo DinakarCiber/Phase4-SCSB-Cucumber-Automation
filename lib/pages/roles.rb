@@ -7,7 +7,7 @@ class RolesPage
   text_field    :txt_searchnetwork_login,           :id    => 'searchNetworkId'
   text_field    :txt_search_email,                  :id    => 'userEmailId'
   button        :btn_search,                        :id    => 'searchButton'
-  span          :img_delete,                        :xpath => "//table/tbody/tr[1]/td[4]/a[2]/span"
+  span          :img_delete,                        :xpath => "id('userDataDelete')/span"
   button        :btn_delete,                        :id    => 'deleteUserButton'
   link          :lnk_createruser,                   :id    => 'createRequest'
 

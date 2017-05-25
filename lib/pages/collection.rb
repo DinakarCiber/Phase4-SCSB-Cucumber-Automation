@@ -14,8 +14,8 @@ class CollectionPage
 
   link             :lnk_title,                                      :id =>"titleLinkId"
   div              :txt_item_details,                               :id => 'collectionModalContent'
-  span             :btn_editcgdaction,                              :xpath => "html/body/section/div/div/div/div/div/form/fieldset/div[3]/div/div/div/div/div[2]/div/div[3]/div[2]/div/div/div[2]/div[1]/div/div/div[1]/label/span/i"
-  span             :btn_deaccesionaction,                           :xpath => "html/body/section/div/div/div/div/div/form/fieldset/div[3]/div/div/div/div/div[2]/div/div[3]/div[2]/div/div/div[2]/div[1]/div/div/div[2]/label/span"
+  span             :btn_editcgdaction,                              :xpath => "id('collectionOptionsDiv')/div/div/div[1]/label/span"
+  span             :btn_deaccesionaction,                           :xpath => "id('collectionOptionsDiv')/div/div/div[2]/label/span"
 
   select           :sel_newcgdfield,                                :id => 'newCGD'
   text_field       :txt_cgdchangenotesfield,                        :id => 'CGDChangeNotes'

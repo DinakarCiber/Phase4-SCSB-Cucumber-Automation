@@ -1,6 +1,6 @@
 Given(/^I select Collection tab on the page$/) do
   @barcode = on(SearchPage).get_valid_barcode
-  sleep 2
+  @current_page.wait_until(30, "Collection tab hasn't displayed"){on(SearchPage).tab_collection_element.visible?}
   on(SearchPage).tab_collection_element.click
   sleep 2
 end
@@ -10,10 +10,13 @@ Then(/^I should see collection page with following elements:$/) do |table|
    table.rows.each do |elements|
      case elements.first
        when "search box"
+         @current_page.wait_until(30, "Search box hasn't displayed on collection page"){on(CollectionPage).txt_search_box_element.visible?}
           on(CollectionPage).txt_search_box_element.visible?.should be_true, "Search box hasn't displayed on collection page"
        when "Display records button"
+         @current_page.wait_until(30, "Display Button hasn't displayed on collection page"){on(CollectionPage).btn_displayrecords_element.visible?}
          on(CollectionPage).btn_displayrecords_element.visible?.should be_true, "Display Button hasn't displayed on collection page"
        when "Note text"
+         @current_page.wait_until(30, "Note text hasn't displayed on collection page"){on(CollectionPage).txt_note_element.visible?}
          on(CollectionPage).txt_note_element.visible?.should be_true, "Note text hasn't displayed on collection page"
      end
    end
@@ -66,14 +69,17 @@ end
 
 When(/^I click on the title$/) do
   @current_page.wait_until(30, "Title element hasn't displayed"){on(CollectionPage).lnk_title_element.visible?}
+  sleep 3
   on(CollectionPage).lnk_title_element.click
   #on(SearchPage).switch_browser_title('Collection Update')
+  #binding.pry
   begin
   @current_page.wait_until(30,"Item detail page hasn't displayed"){on(CollectionPage).txt_item_details_element.visible?}
   rescue
     on(CollectionPage).lnk_title_element.click
     @current_page.wait_until(30,"Item detail page hasn't displayed_rescue_error"){on(CollectionPage).txt_item_details_element.visible?}
   end
+  sleep 3
 end
 
 Then(/^I should see item detail page with following elements$/) do |table|
@@ -182,18 +188,19 @@ Then(/^I should see message (Please enter CGD Change Notes)$/) do |txt_err_msg|
 end
 
 And(/^I select deaccession radio button$/) do
+  @current_page.wait_until(30, "Deaccession Radio button hasn't displayed"){on(CollectionPage).btn_deaccesionaction_element.visible?}
   on(CollectionPage).btn_deaccesionaction_element.click
 end
 
 And(/^I select delivery location$/) do
-  sleep 3
+  @current_page.wait_until(30, "Delivery Location field hasn't displayed"){on(CollectionPage).txt_deliverylocation_element.visible?}
   delivery_locations =  on(CollectionPage).txt_deliverylocation_element.text.gsub("\n",",").split(",")
-  sleep 3
+  sleep 2
   on(CollectionPage).txt_deliverylocation_element.select(delivery_locations.sample) rescue nil
 end
 
 And(/^I enter deaccession notes$/) do
-  sleep 3
+  sleep 2
   on(CollectionPage).txt_deaccessionnotesfield_element.value = "Deaccession-Testing"
 end
 
