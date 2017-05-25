@@ -49,9 +49,9 @@ Feature: Login
 
 	Examples:
      |symbols|Institution_webpage           |
-     #|Recap  |http://recap.princeton.edu/   |
+     #|Recap  |http://recap.princeton.edu/  |
      |CUL    |http://www.columbia.edu/      |
-     |PUL    |http://www.princeton.edu/main/|
+     |PUL    |https://www.princeton.edu/    |
      |NYPL   |https://www.nypl.org/         |
 
   @automation

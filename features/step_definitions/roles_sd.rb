@@ -17,16 +17,20 @@ And(/^I create new user with following "([^"]*)" for own institution only:$/) do
  end
 
 Then(/^I should see message user has been (Added Successfully)$/) do |txt_msg|
-  sleep 2
+  sleep 5
+
   @current_page.text.upcase.include?(("#{$networklogin}" +" "+ txt_msg).upcase).should be_true, "User roles not created successfully"
   on(RolesPage).lnk_goback_element.click
-  sleep 2
-  on(RolesPage).txt_searchnetwork_login_element.value = $networklogin
-  on(RolesPage).btn_search_element.click
   sleep 5
+  on(RolesPage).txt_searchnetwork_login_element.value = $networklogin
+  @current_page.wait_until(30, "Search button hasn't visible"){on(RolesPage).btn_search_element.visible?}
+  on(RolesPage).btn_search_element.click
+  sleep 2
   @current_page.text.include?($networklogin).should be_true, "User roles not created successfully"
+  @current_page.wait_until(30, "Delete Image button hasn't visible"){on(RolesPage).img_delete_element.visible?}
   on(RolesPage).img_delete_element.click
   sleep 2
+  @current_page.wait_until(30, "Delete button hasn't visible"){on(RolesPage).btn_delete_element.visible?}
   on(RolesPage).btn_delete_element.click
   sleep 2
   #@current_page.text.include?("#{$networklogin} + Deleted successfully").should be_true, "User id hasn't deleted successfully"

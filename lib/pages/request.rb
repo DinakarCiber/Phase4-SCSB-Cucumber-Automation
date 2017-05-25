@@ -4,11 +4,11 @@ class RequestPage
   include DataMagic
 
   #span            :lnk_searchrequest,                                      :xpath => "html/body/section/div/div/div/div/div/div/form/fieldset/div[1]/div[2]/div[1]/div[2]/a/span"
-  link            :lnk_searchrequest,                                      :link =>"Search Requests"
-  link            :lnk_goback,                                             :link => "Go Back"
-  button          :btn_search,                                             :id => 'searchRequestsButton'
-  button          :btn_cancel,                                             :id => 'cancelRequestsButtonId'
-  button          :create_button,                                          :id => 'createrequestsubmit'
+  link            :lnk_searchrequest,                                     :link =>"Search Requests"
+  link            :lnk_goback,                                            :link => "Go Back"
+  button          :btn_search,                                            :id => 'searchRequestsButton'
+  button          :btn_cancel,                                            :id => 'cancelRequestsButtonId'
+  button          :create_button,                                         :id => 'createrequestsubmit'
   text_field      :txt_itembarcode,                                       :id =>'itemBarcodeId'
   text_field      :txt_patronbarcode,                                     :id => 'patronBarcodeId'
   text_field      :txt_emailid,                                           :id => 'patronEmailId'

@@ -41,7 +41,6 @@ And(/^I enter (own|cross) institution (PUL|CUL|NYPL) to (PUL|CUL|NYPL) mandaory 
       on(RequestPage).txt_title_element.value = 'Testing'
       on(RequestPage).txt_emailid_element.value = "test@gmail.com"
 
-
       case txt_crossInsti
         when 'CUL'
           on(RequestPage).txt_patronbarcode_element.value ='RECAPTST02'
@@ -53,11 +52,11 @@ And(/^I enter (own|cross) institution (PUL|CUL|NYPL) to (PUL|CUL|NYPL) mandaory 
     when 'RECALL'
       @availbale_barcode = on(RequestPage).get_retrival_barcode
       on(RequestPage).lnk_goback_element.click
-      sleep 3
+      sleep 2
       on(RequestPage).txt_itembarcode_element.value = @availbale_barcode
       on(RequestPage).sele_requestinginsti_element.select(txt_crossInsti)
       on(RequestPage).populate_data(txt_insti)
-      sleep 5
+      sleep 2
       delivery_location
       sleep 2
       on(RequestPage).request_type_element.select('RECALL')
@@ -78,13 +77,15 @@ And(/^I enter (own|cross) institution (PUL|CUL|NYPL) to (PUL|CUL|NYPL) mandaory 
 end
 
 def delivery_location
+
   t1 = on(RequestPage).delivery_location_element.text
+  sleep 2
   t2 = t1.gsub("\n", ",")
   t3 = t2.split(",")
   dl =t3.sample
-  sleep 2
+  sleep 3
   on(RequestPage).delivery_location_element.select(dl)
-  sleep 2
+  sleep 3
 end
 
 And(/^I click create$/) do
@@ -149,9 +150,9 @@ def get_available_barcode(txt_institution)
 end
 
 And(/^I search RETRIVAL request$/) do
+  @current_page.wait_until(30, "Search Request link hasn't displayed"){on(RequestPage).lnk_searchrequest_element.visible?}
   on(RequestPage).lnk_searchrequest_element.click
   sleep 2
-
   on(RequestPage).request_status_element.select('RETRIEVAL ORDER PLACED')
   on(RequestPage).btn_search_element.click
   sleep 2
