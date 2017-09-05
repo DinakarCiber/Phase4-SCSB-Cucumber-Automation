@@ -228,11 +228,11 @@ When(/^I search with same barcode in collection UI$/) do
   on(CollectionPage).btn_close_element.click
   rescue
     @current_page.wait_until(30, "Close button hasn't displayed"){on(CollectionPage).btn_close_element.visible?}
-  on(CollectionPage).btn_close_element.click
+    on(CollectionPage).btn_close_element.click
   end
-  sleep 2
-  step 'I enter valid Barcode in collection search box'
-  step 'I click Display Records'
+    sleep 2
+    step 'I enter valid Barcode in collection search box'
+    step 'I click Display Records'
 end
 
 Then(/^I should see updated CGD in the table view$/) do

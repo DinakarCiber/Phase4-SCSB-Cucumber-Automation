@@ -5,18 +5,24 @@ end
 
 When(/^I login with valid credentails$/) do
 on(LoginPage).login_with_valid_credentials('mkarthik3i','Testing1234', 'HTC')
+#on(LoginPage).login_with_valid_credentials('superadmin','superadmin', 'HTC')
 #on(LoginPage).login_with_valid_credentials('superadmin','123Welcome', 'HTC')
+  #@current_page.wait_until('30',"Search page hasn't dispalyed"){on(SearchPage).txt_search_box_element.visible?}
 end
 
 
 When(/^I login with valid credential$/) do
+  #step "I login with valid credentails"
   on(LoginPage).login_with_valid_credentials('mkarthik3i','Testing1234','HTC')
+  #on(LoginPage).login_with_valid_credentials('superadmin','superadmin', 'HTC')
  # on(LoginPage).login_with_valid_credentials('superadmin','123Welcome', 'HTC')
   #@current_page.wait_until('30',"Search page hasn't dispalyed"){on(SearchPage).txt_search_box_element.visible?}
 end
 
 When(/^I login with valid credentials$/) do
+  #step "I login with valid credentails"
   on(LoginPage).login_with_valid_credentials('mkarthik3i','Testing1234','HTC')
+  #on(LoginPage).login_with_valid_credentials('superadmin','superadmin', 'HTC')
   #on(LoginPage).login_with_valid_credentials('superadmin','123Welcome', 'HTC')
   #@current_page.wait_until('30',"Search page hasn't dispalyed"){on(SearchPage).txt_search_box_element.visible?}
 end

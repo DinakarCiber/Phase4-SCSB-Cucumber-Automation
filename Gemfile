@@ -12,7 +12,7 @@ gem "rspec", "2.12.0"
 #gem 'rspec-expectations', '~> 3.5'
 #gem "rspec-mocks", "2.12.2"
 #gem "selenium-webdriver", "2.53.4"
-gem "selenium-webdriver", "3.0.4"
+gem "selenium-webdriver", "3.4.0"
 gem  "headless", "2.2.2"
 gem "require_all", "1.2.1"
 gem "data_magic", "0.15.2"

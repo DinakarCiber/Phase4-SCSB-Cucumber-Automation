@@ -62,7 +62,7 @@ Feature: Search page
  Scenario: As a librarian, I can search with "Author" name as a keyword in the search box
    Given I launch the SCSB application
     When I login with valid credential
-     And I enter "Tomasino, Humberto" in search box
+     And I enter "Fries, Willy" in search box
      And I select "Author" in All fields dropdown box
      And I click search button
     Then I should see the search results
@@ -71,7 +71,7 @@ Feature: Search page
  Scenario: As a librarian, I can search with "Title" as a keyword in the search box
    Given I launch the SCSB application
     When I login with valid credential
-     And I enter "10 mei 1940, luchtoorlog boven Nederland" in search box
+     And I enter "Architekt Wilhelm Waser, Zürich, 1811-1866." in search box
      And I select "Title" in All fields dropdown box
      And I click search button
     Then I should see the search results
@@ -134,7 +134,7 @@ Feature: Search page
  Scenario: As a librarian, I can search with "ISSN" as a keyword in the search box
    Given I launch the SCSB application
     When I login with valid credential
-     And I enter "18028705" in search box
+     And I enter "00260665" in search box
      And I select "ISSN" in All fields dropdown box
      And I click search button
     Then I should see the search results
@@ -161,7 +161,7 @@ Feature: Search page
  Scenario: As a librarian, I can search with "Call Number" as a keyword in the search box
    Given I launch the SCSB application
     When I login with valid credential
-     And I enter "HD6603.5.D8" in search box
+     And I enter "PJ7832.U82Z93" in search box
      And I select "Call Number" in All fields dropdown box
      And I click search button
     Then I should see the search results
@@ -170,7 +170,7 @@ Feature: Search page
  Scenario: As a librarian, I can search with "Barcode" as a keyword in the search box
    Given I launch the SCSB application
     When I login with valid credential
-     And I enter "33433013074434" in search box
+     And I enter "1000858110" in search box
      And I select "Barcode" in All fields dropdown box
      And I click search button
     Then I should see the search results
