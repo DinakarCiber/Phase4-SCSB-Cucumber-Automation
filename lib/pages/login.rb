@@ -4,8 +4,9 @@ class LoginPage
 
   #page_url "http://tst-recap-direct.htcinc.com:9091"
   #page_url "http://uat-recap.htcinc.com:9091"
-  page_url "https://tst-recap.htcinc.com/"
+   page_url "https://tst-recap.htcinc.com/"
   #page_url "https://uat-recap.htcinc.com/"
+  #page_url "https://scsb.recaplib.org"
 
 
   div           :login_cont,                        :class => 'login-content'
@@ -41,6 +42,7 @@ class LoginPage
     htc_pwd_element.value = txt_pwd
     sleep 3
     lnk_login_element.click
+    #binding.pry
     wait_until(30, "Search page hasn't loaded"){txt_search_box_element.visible?}
   end
 
